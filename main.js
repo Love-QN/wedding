@@ -1,13 +1,13 @@
-// Safe AOS initialization
-if (window.AOS && typeof AOS.init === "function") {
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
-}
-
-// Tilt effect for cards
 document.addEventListener("DOMContentLoaded", () => {
+  // AOS init (if available)
+  if (window.AOS && typeof AOS.init === "function") {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }
+
+  // VanillaTilt for elements with data-tilt attribute
   if (window.VanillaTilt) {
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
       max: 12,
@@ -17,35 +17,65 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cinematic intro and hero animations
+  // Intro overlay and hero animations (GSAP)
   const introOverlay = document.getElementById("intro-overlay");
   const enterBtn = document.getElementById("enter-btn");
+  let introHidden = false;
 
+  // Helper: hide intro overlay and animate hero
+  const hideIntro = () => {
+    if (introHidden) return;
+    introHidden = true;
+
+    if (introOverlay) {
+      if (window.gsap) {
+        gsap.to("#intro-overlay", {
+          opacity: 0,
+          duration: 0.8,
+          onComplete: () => {
+            introOverlay.style.display = "none";
+          },
+        });
+      } else {
+        introOverlay.style.display = "none";
+      }
+    }
+
+    if (window.gsap) {
+      gsap.from(".hero-title", { y: 40, opacity: 0, duration: 1, delay: 0.1 });
+      gsap.from(".hero-names", { y: 30, opacity: 0, duration: 1, delay: 0.3 });
+      gsap.from(".hero-subtitle", { y: 20, opacity: 0, duration: 1, delay: 0.5 });
+    }
+  };
+
+  // Intro animations and hide triggers
   if (introOverlay && enterBtn && window.gsap) {
     gsap.from(".intro-monogram", { y: -30, opacity: 0, duration: 1 });
     gsap.from(".intro-title", { y: 20, opacity: 0, duration: 0.8, delay: 0.3 });
     gsap.from(".intro-subtitle", { y: 20, opacity: 0, duration: 0.8, delay: 0.5 });
     gsap.from(".intro-btn", { scale: 0.9, opacity: 0, duration: 0.8, delay: 0.7 });
 
-    const hideIntro = () => {
-      gsap.to("#intro-overlay", {
-        opacity: 0,
-        duration: 0.8,
-        onComplete: () => {
-          introOverlay.style.display = "none";
-        },
-      });
+    // 1) Hide when clicking the button
+    enterBtn.addEventListener("click", hideIntro);
 
+    // 2) Hide on first scroll
+    window.addEventListener(
+      "scroll",
+      () => {
+        hideIntro();
+      },
+      { once: true }
+    );
+
+    // 3) Fallback: auto-hide after 4 seconds
+    setTimeout(hideIntro, 4000);
+  } else {
+    // If intro overlay or GSAP missing, animate hero directly
+    if (window.gsap) {
       gsap.from(".hero-title", { y: 40, opacity: 0, duration: 1, delay: 0.3 });
       gsap.from(".hero-names", { y: 30, opacity: 0, duration: 1, delay: 0.5 });
       gsap.from(".hero-subtitle", { y: 20, opacity: 0, duration: 1, delay: 0.7 });
-    };
-
-    enterBtn.addEventListener("click", hideIntro);
-  } else if (window.gsap) {
-    gsap.from(".hero-title", { y: 40, opacity: 0, duration: 1, delay: 0.3 });
-    gsap.from(".hero-names", { y: 30, opacity: 0, duration: 1, delay: 0.5 });
-    gsap.from(".hero-subtitle", { y: 20, opacity: 0, duration: 1, delay: 0.7 });
+    }
   }
 
   // Typed.js animated line in hero
@@ -153,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Theme toggle (light / dark)
+  // Theme toggle
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
