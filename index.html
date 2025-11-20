@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>حكاية زفاف قتيبة الكردي و نور السعيد</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <div id="tsparticles"></div>
+  <div class="overlay-gradient"></div>
+
+  <!-- Cinematic Intro Overlay -->
+  <div id="intro-overlay">
+    <div class="intro-content">
+      <div class="intro-monogram">Q&nbsp;&nbsp;♥&nbsp;&nbsp;N</div>
+      <div class="intro-title">قصة حب تعبر الحدود</div>
+      <div class="intro-subtitle">من أول رسالة إلى عقد زواج في سوريا، ولقاء في عمّان، وحياة في زارلاند</div>
+      <button id="enter-btn" class="btn btn-light intro-btn">
+        ادخلوا إلى الحكاية
+        <i class="fa-solid fa-arrow-down-long"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top main-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">
+        Q <span class="brand-heart">♥</span> N
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#story">قصتنا</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contract">عقد الزواج</a></li>
+          <li class="nav-item"><a class="nav-link" href="#timeline">الخط الزمني</a></li>
+          <li class="nav-item"><a class="nav-link" href="#home-prep">الاستعداد للحياة في زارلاند</a></li>
+          <li class="nav-item"><a class="nav-link" href="#family">فرحة الأهل</a></li>
+          <li class="nav-item"><a class="nav-link" href="#letters">رسائل القلب</a></li>
+          <li class="nav-item"><a class="nav-link" href="#meeting">اللقاء في عمّان</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">معرض الصور</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gifts">التهاني والهدايا</a></li>
+
+          <!-- Controls -->
+          <li class="nav-item d-flex align-items-center gap-2 nav-controls">
+            <button id="theme-toggle" class="icon-btn" title="Toggle light / dark mode">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+            <button id="music-toggle" class="icon-btn" title="Play / Pause music">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Music Player -->
+  <audio id="music-player" loop>
+    <!-- Replace with your own mp3 file name if needed -->
+    <source src="wedding.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="hero-badge animate__animated animate__fadeInDown">
+            <i class="fa-solid fa-ring"></i>
+            زفاف المهندس قتيبة الكردي و نور السعيد – نوفمبر ٢٠٢٥
+          </div>
+          <div class="hero-badge-secondary animate__animated animate__fadeInDown animate__delay-1s">
+            <i class="fa-solid fa-file-signature"></i>
+            عقد الزواج في سوريا – فبراير ٢٠٢٥
+          </div>
+          <h1 class="hero-title animate__animated animate__fadeInRight">
+            حكاية تعبر من أول رسالة إلى بيت واحد
+          </h1>
+          <div class="hero-names animate__animated animate__fadeInRight animate__delay-1s">
+            قتيبة الكردي &nbsp; ♥ &nbsp; نور السعيد
+          </div>
+          <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+            من أول رسالة صادقة بين ألمانيا وسوريا، إلى عقد زواج في الوطن، وانتظار طويل،
+            ثم لقاء في عمّان، وسفر مشترك إلى زارلاند في ألمانيا…<br>
+            هذه ليست مجرد قصة أونلاين، بل رحلة قدر وصبر ودعاء.
+          </p>
+
+          <p class="typed-line">
+            <span id="typed-text"></span>
+          </p>
+
+          <div class="hero-flags animate__animated animate__fadeInUp animate__delay-1s">
+            <span>هو في ألمانيا 🇩🇪</span>
+            <span>وهي في سوريا 🇸🇾</span>
+            <span>اللقاء في عمّان 🇯🇴</span>
+            <span>والاستقرار في زارلاند 🇩🇪</span>
+          </div>
+
+          <div class="hero-actions d-flex flex-wrap gap-2">
+            <a href="#story" class="btn btn-danger btn-main">
+              <i class="fa-solid fa-book-heart"></i>
+              ابدأوا من أول سطر
+            </a>
+            <a href="#meeting" class="btn btn-outline-secondary btn-main">
+              <i class="fa-solid fa-plane-departure"></i>
+              إلى لقاء عمّان
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-card" data-tilt data-aos="zoom-in">
+            <div class="hero-card-icon text-center">
+              <i class="fa-solid fa-laptop-heart text-danger"></i>
+            </div>
+            <h5 class="text-center mb-3">من أول رسالة…</h5>
+            <p>
+              • <strong>أبريل ٢٠٢٤</strong>: أول رسالة بين قتيبة في ألمانيا ونور في سوريا،
+              تحوّلت إلى حديث يومي وساعات من السهر والضحك والدعم.
+            </p>
+            <p>
+              • <strong>فبراير ٢٠٢٥ – سوريا</strong>: عُقِد الزواج شرعياً في الوطن،
+              كُتبت الأسماء جنباً إلى جنب في عقد واحد، وبقيت المسافة تنتظر أن تُهزم.
+            </p>
+            <p>
+              • أوراق كثيرة، وطلبات من <strong>السفارة الألمانية في عمّان</strong>، ملفات،
+              ترجمات، مواعيد… كل ورقة خطوة نحو اللقاء.
+            </p>
+            <p>
+              • <strong>أغسطس ٢٠٢٥</strong>: نور تقدّم فحص اللغة وتنجح، ثم تدخل المقابلة
+              في السفارة بقلب مليء بالدعاء.
+            </p>
+            <p>
+              • <strong>نوفمبر ٢٠٢٥</strong>: يصل إيميل الموافقة، لتتحوّل كلمة “إن شاء الله”
+              إلى موعد محدّد: <strong>١١ ديسمبر ٢٠٢٥ – لقاء عمّان.</strong>
+            </p>
+            <small>
+              “كثير من التعب… كثير من الحب… كثير من الانتظار…
+              وكل هذا لم يكن سوى مقدمة لقول: <strong>نعم</strong> أمام الله والناس.”
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-book-heart text-danger"></i>
+        قصـة قتيبة و نور
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+      <p class="section-tagline" data-aos="fade-up">
+        من أول رسالة في أبريل ٢٠٢٤، إلى عقد الزواج في سوريا في فبراير ٢٠٢٥،
+        ثم إيميل الموافقة في نوفمبر ٢٠٢٥، ولقاء عمّان في ١١ ديسمبر…
+        حكاية كتبتها المسافة، ومسحها اليقين.
+      </p>
+
+      <div class="story-card" data-aos="fade-up">
+        <p>
+          بدأت القصة من <strong>أول رسالة</strong> في <strong>أبريل ٢٠٢٤</strong>.
+          سؤال بسيط، جواب صادق، ثم حوار يمتد… شيئاً فشيئاً لم تعد الرسالة مجرد نص على الشاشة،
+          بل نافذة يطلّ منها كل واحد على عالم الآخر.
+        </p>
+        <p>
+          بين <strong>ألمانيا</strong> حيث يعيش قتيبة، و<strong>سوريا</strong> حيث تقيم نور،
+          كان الإنترنت هو الجسر الوحيد، لكن ما يعبر عليه لم يكن “بايتات”،
+          بل دعوات، مخاوف، ضحكات، وخطط صغيرة لمستقبل كبير.
+        </p>
+        <p>
+          ومع الوقت، صارت فكرة الزواج هي اللغة المشتركة بين كل سطر وآخر.
+          وفي <strong>فبراير ٢٠٢٥</strong>، وفي <strong>سوريا</strong>، جاء اليوم
+          الذي تحوّلت فيه هذه الفكرة إلى حقيقة:
+          <strong>عقد زواج شرعي</strong>، يُشهد فيه أن هذين الاسمين قرّرا أن يمشيا معاً.
+        </p>
+        <p>
+          من بعد عقد الزواج، بدأت المرحلة الأكثر دقّة:
+          تجهيز الأوراق للسفر ولمّ الشمل، وطلبات <strong>السفارة الألمانية في عمّان</strong>،
+          من شهادات، وترجمات، وتواقيع، ومواعيد.
+        </p>
+        <p>
+          وسط هذا كله، ظلّ هناك شيء واحد لا يتغيّر:
+          إصرار قتيبة ونور أن كل تعب اليوم هو راحة الغد.
+        </p>
+        <p>
+          تقدّمت نور لـ<strong>فحص اللغة الألمانية</strong> واجتازته، ثم دخلت
+          <strong>مقابلة السفارة في أغسطس ٢٠٢٥</strong> بقلب يردّد:
+          “اللهم يسّر ولا تعسّر”.
+        </p>
+        <p>
+          حتى جاء <strong>نوفمبر ٢٠٢٥</strong>، ووصل الإيميل المنتظر بالموافقة.
+          لحظة اختلطت فيها الدموع بالضحك، والسكوت بالـ“الحمد لله”.
+        </p>
+        <p>
+          ومن هنا بدأت تفاصيل جديدة في القصة:
+          التخطيط لـ<strong>اللقاء في عمّان بتاريخ ١١ ديسمبر ٢٠٢٥</strong>،
+          ثم السفر سوياً إلى <strong>ألمانيا – ولاية زارلاند</strong>
+          ليبدآ فصلاً جديداً من الحكاية، تحت سقف واحد.
+        </p>
+
+        <div class="story-highlight">
+          <p class="poetic-line">
+            “قصة بدأت من أول رسالة… واستقرّت عند وعدٍ أن لا شيء في هذا العالم
+            أقوى من قلبين حملا نفس الدعاء.”
+          </p>
+          <p>
+            <strong>كثير من التعب، كثير من الحب، كثير من الانتظار…</strong><br>
+            وفي النهاية: <strong>بيت واحد في زارلاند، وقلبان يقولان الحمد لله.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contract Section -->
+  <section id="contract">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-mosque text-success"></i>
+        عقد الزواج في سوريا – فبراير ٢٠٢٥
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+
+      <div class="contract-card" data-aos="zoom-in">
+        <div class="contract-badge">
+          <i class="fa-solid fa-file-signature"></i>
+          من أول رسالة… إلى عقد زواج في الوطن
+        </div>
+        <p class="contract-date">
+          في <strong>سوريا – فبراير ٢٠٢٥</strong>، لم يعد ما بين قتيبة ونور حديثاً طويلاً فقط،
+          بل أصبح <strong>عقد زواج شرعي</strong>، موقّعاً، مشهوداً، ومحفوظاً في القلوب قبل الأوراق.
+        </p>
+        <p class="contract-verse">
+          <em>
+            «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+            وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+          </em>
+        </p>
+        <p>
+          كان ذلك اليوم إعلاناً واضحاً أن هذه العلاقة لم تُبنَ على عابر كلام،
+          بل على قرار وعهد، وأن ما تبقّى هو أن تلتحق الأوراق بما قرره القلب.
+        </p>
+        <p>
+          من بعد هذا اليوم، صار كل طابع بريد، وكل موعد في السفارة، وكل ورقة موقّعة،
+          مجرد تفاصيل تفصل بين عقدٍ كُتِب في سوريا، وبيتٍ ينتظرهم في زارلاند.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-timeline text-primary"></i>
+        الخط الزمني لرحلة الحب
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div class="timeline-date">أبريل ٢٠٢٤</div>
+          <div class="timeline-title">من أول رسالة</div>
+          <div class="timeline-text">
+            من أول رسالة، محادثة أولى، ثم سيل من الكلام لا يتوقف.
+            بدأ كل شيء بجملة بسيطة، لكن ما بعدها كان حياة كاملة تُكتب.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <div class="timeline-date">٢٠٢٤ – بداية ٢٠٢٥</div>
+          <div class="timeline-title">ليالٍ من السهر و الدعم</div>
+          <div class="timeline-text">
+            مكالمات متأخرة، وضحكات طويلة، ورسائل في أصعب الأيام،
+            جعلت المسافة تبدو أحياناً أقل قسوة.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-file-signature"></i>
+          </div>
+          <div class="timeline-date">فبراير ٢٠٢٥</div>
+          <div class="timeline-title">عقد الزواج في سوريا</div>
+          <div class="timeline-text">
+            في سوريا، تم عقد الزواج. كُتبت الأسماء معاً في عقد واحد،
+            وصار الطريق واضحاً: لسنا ننتظر هل نتزوّج؟ بل ننتظر متى نجتمع.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-file-circle-check"></i>
+          </div>
+          <div class="timeline-date">٢٠٢٤ – ٢٠٥٢</div>
+          <div class="timeline-title">الأوراق و السفارة في عمّان</div>
+          <div class="timeline-text">
+            طلبات من <strong>السفارة الألمانية في عمّان</strong>:
+            أوراق، ترجمات، تصديقات. كل توقيع خطوة جديدة نحو اللقاء.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <div class="timeline-date">أغسطس ٢٠٢٥</div>
+          <div class="timeline-title">فحص اللغة والمقابلة</div>
+          <div class="timeline-text">
+            نور تتقدّم لفحص اللغة الألمانية وتنجح، ثم تقف أمام موظف السفارة
+            في مقابلة مصيرية، تحمل في قلبها صورة بيتهما الذي لم يُبنَ بعد.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-envelope-circle-check"></i>
+          </div>
+          <div class="timeline-date">نوفمبر ٢٠٢٥</div>
+          <div class="timeline-title">إيميل الموافقة</div>
+          <div class="timeline-text">
+            إيميل واحد، لكن كأنه يفتح أبواب المستقبل كلها.
+            كان جواباً على دعوات كثيرة قيلت في هدوء الليل.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-plane"></i>
+          </div>
+          <div class="timeline-date">١١ ديسمبر ٢٠٢٥</div>
+          <div class="timeline-title">اللقاء في عمّان</div>
+          <div class="timeline-text">
+            عمّان تصبح أرض اللقاء الأول: لا شاشة، لا مكالمة، بل واقع
+            يتحرك فيه قتيبة ونور في نفس المكان، لأول مرة بعد كل هذه الرسائل.
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-city"></i>
+          </div>
+          <div class="timeline-date">بعد اللقاء</div>
+          <div class="timeline-title">زارلاند – بداية البيت الجديد</div>
+          <div class="timeline-text">
+            من عمّان إلى <strong>زارلاند في ألمانيا</strong>، حيث يبدأ بيت صغير
+            بحلمين كبيرين، وحكاية عنوانها: الحمد لله الذي جمعنا بعد طول انتظار.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home Preparation Section -->
+  <section id="home-prep">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-house-chimney-heart text-danger"></i>
+        قتيبة يجهّز البيت و يستعد للحياة الزوجية في زارلاند
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+      <p class="section-tagline" data-aos="fade-up">
+        في زاوية هادئة من زارلاند، بدأ قتيبة يكتب التفاصيل الأولى لبيت سيجمعه بنور.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="home-card" data-aos="fade-right">
+            <h5><i class="fa-solid fa-couch"></i> تجهيز البيت خطوة بخطوة</h5>
+            <p>
+              بعد وصول إيميل الموافقة، لم يكن قتيبة ينتظر اللقاء فقط، بل بدأ
+              يعيش التفاصيل مبكراً. بحث عن شقة صغيرة دافئة في زارلاند، قريبة
+              من الخدمات، تشبه بداية هادئة لحياة كبيرة.
+            </p>
+            <p>
+              غرفة جلوس بسيطة، لكن مرتّبة بعناية. اختار ألواناً هادئة، ومساحة
+              يمكن فيها لضحكة نور أن تمتد، ولبداياتهما أن تشعر بالأمان.
+            </p>
+            <p>
+              في كل زاوية، كان يترك مساحة لصورة قادمة، وإطار لذكرى لم تُلتقط بعد،
+              وكأن البيت يفتح ذراعيه لساكنته الجديدة.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="home-card" data-aos="fade-left">
+            <h5><i class="fa-solid fa-kitchen-set"></i> تفاصيل صغيرة لحياة كبيرة</h5>
+            <p>
+              في المطبخ، اختار قتيبة الأدوات بعينٍ ترى المستقبل: فناجين قهوة
+              لجلسات صباحية في زارلاند، وأطباقاً لوجبات بسيطة تُطهى على عجل،
+              بين عمل وضحك وحديث عن الأيام.
+            </p>
+            <p>
+              جهّز مكاناً لكتب نور، وزاوية لها بجانب النافذة، لتقرأ أو تدرس
+              أو تكتب رسائل جديدة لكن هذه المرة وهو في نفس المكان.
+            </p>
+            <p>
+              لم يكن البيت مجرد جدران؛ كان رسالة عملية تقول لنور:
+              “كل هذا أعددته في انتظارك، حتى نبدأ من يومنا الأول ونحن نشعر
+              أن هذا البيت خُلق لنسكن فيه معاً.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family Section -->
+  <section id="family">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-people-group text-success"></i>
+        فرحة الأهل و مشاركة العائلة
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+      <p class="section-tagline" data-aos="fade-up">
+        لا تكتمل أي حكاية زواج دون قلوب كانت تدعو في الخلفية، وتنتظر هذا اليوم كأنه يومها.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="family-card" data-aos="fade-right">
+            <h5><i class="fa-solid fa-hands-praying"></i> دعوات الأهل</h5>
+            <p>
+              في سوريا، كان أهل نور يعيشون مع كل خطوة من بعيد؛ يسألون عن الأوراق،
+              عن المواعيد، عن نتيجة فحص اللغة، عن تفاصيل المقابلة في السفارة.
+            </p>
+            <p>
+              كلما تأخر خبر، ارتفعت دعوة. وكلما اقترب موعد، ازدادت السجدات
+              التي يُذكر فيها اسم قتيبة ونور معاً.
+            </p>
+            <p>
+              يوم وصل إيميل الموافقة في <strong>نوفمبر ٢٠٢٥</strong>،
+              لم يكن مجرد فرح لشخصين، بل فرح لعائلتين شعرتا أن الله
+              أكرمهما بجمع قلبين رغم الظروف والمسافات.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="family-card" data-aos="fade-left">
+            <h5><i class="fa-solid fa-face-smile-beam"></i> المشاركة في الفرح و الاستعداد للسفر</h5>
+            <p>
+              بدأت العائلة تجهّز مع نور تفاصيل السفر: حقائب، أوراق، ملابس مناسبة
+              للطقس في ألمانيا، ونصائح لا تنتهي عن الغربة والصبر والتفاهم.
+            </p>
+            <p>
+              كانت الابتسامات تختلط بالدموع؛ دموع فراق مؤقت عن الأهل،
+              وفرح حقيقي بأن نور ستنتقل إلى حياة جديدة مع من اختارته قلباً وشريكاً.
+            </p>
+            <p>
+              في المقابل، كان أهل قتيبة في ألمانيا ينتظرون هذه اللحظة،
+              يحسبون الأيام حتى تصل نور، ليكتمل البيت بصاحبة القلب الذي عرفوه
+              من حكاياته ورسائله.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Letters Section -->
+  <section id="letters">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-envelope-open-heart text-pink"></i>
+        رسائل من القلب
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="message-card" data-aos="fade-right">
+            <h5><i class="fa-solid fa-arrow-left-long"></i> من قتيبة إلى نور</h5>
+            <p>
+              يا نور… من أول رسالة شعرت أن هناك شيئاً مختلفاً، وكأن الله يُرسل لي
+              شخصاً يقول: “أنا هنا لأسندك.”
+            </p>
+            <p>
+              يوم <strong>عقد الزواج في سوريا – فبراير ٢٠٢٥</strong>،
+              شعرت أن كل مكالمة وكل ضحكة وكل دمعة سبقت ذلك اليوم
+              تحوّلت إلى سطر في عقد واحد يجمعنا.
+            </p>
+            <p>
+              كل ورقة جهزتها، كل خطوة خطوناها معاً نحو السفارة والموافقة،
+              كانت بالنسبة لي دليلاً أن هذا الطريق لا نمشيه وحدنا، بل يباركه الله.
+            </p>
+            <p>
+              وأنا أعد الأيام حتى <strong>١١ ديسمبر ٢٠٢٥</strong>،
+              أتخيّل أول لحظة أراك فيها في عمّان بلا شاشة،
+              وأقول في قلبي: “يا رب كما جمعتنا، احفظنا وبارك لنا.”
+            </p>
+            <p class="message-sign">
+              شكراً لأنك اخترتِ أن تكوني شريكتي في هذا الطريق الطويل… حتى نصل إلى بيتنا في زارلاند.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="message-card" data-aos="fade-left">
+            <h5><i class="fa-solid fa-arrow-left-long"></i> من نور إلى قتيبة</h5>
+            <p>
+              يا قتيبة… من أول رسالة، كان هناك شيء يطمئنني،
+              وكأن قلبي يقول: “هذا الشخص سيكون بيتي، ولو كان الآن بعيداً.”
+            </p>
+            <p>
+              في <strong>فبراير ٢٠٢٥</strong> حين عُقِد زواجنا في سوريا،
+              شعرت أن الوطن يشهد على وعدنا، وأن المسافة مهما طالت
+              ستنتهي في حضن واحد.
+            </p>
+            <p>
+              إيميل الموافقة في <strong>نوفمبر ٢٠٢٥</strong> لم يكن مجرد خبر،
+              كان جواباً على كل “يا رب” قلناها بعد اتصال مُرهِق أو رسالة قلقة.
+            </p>
+            <p>
+              وأنا أستعد لـ<strong>لقائنا في عمّان في ١١ ديسمبر ٢٠٢٥</strong>،
+              أشعر أن كل خطوة أحزم فيها حقيبتي هي خطوة نحو حياة جديدة
+              في زارلاند، حيث نصنع تفاصيل أيامنا بعيداً عن المسافة.
+            </p>
+            <p class="message-sign">
+              سألقاك في عمّان، ثم نمشي معاً إلى زارلاند… وفي قلبي يقين أن هذا الطريق كان يستحق كل انتظار.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meeting & Countdown Section -->
+  <section id="meeting">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-plane-departure text-success"></i>
+        العد التنازلي للقاء عمّان – ١١ ديسمبر ٢٠٢٥
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <div class="countdown-box" data-aos="zoom-in">
+            <div class="countdown-title">
+              كم تبقّى على لحظة أن يلتقي قتيبة و نور وجهاً لوجه؟
+            </div>
+            <div class="countdown-subtitle">
+              الأيام تمضي، واللقاء يقترب بإذن الله… وكل ثانية تقترب تحمل دعاءً جديداً.
+            </div>
+            <div class="countdown-grid">
+              <div class="countdown-item">
+                <div id="days" class="countdown-number">--</div>
+                <div class="countdown-label">أيام</div>
+              </div>
+              <div class="countdown-item">
+                <div id="hours" class="countdown-number">--</div>
+                <div class="countdown-label">ساعات</div>
+              </div>
+              <div class="countdown-item">
+                <div id="minutes" class="countdown-number">--</div>
+                <div class="countdown-label">دقائق</div>
+              </div>
+              <div class="countdown-item">
+                <div id="seconds" class="countdown-number">--</div>
+                <div class="countdown-label">ثوانٍ</div>
+              </div>
+            </div>
+            <div class="meeting-note">
+              العدّ مضبوط على <strong>١١ ديسمبر ٢٠٢٥</strong> في عمّان.
+              يمكن تعديل التاريخ من ملف <code>main.js</code> إذا تغيّر الموعد.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="wish-card" data-aos="fade-left">
+            <p>
+              <i class="fa-solid fa-heart-circle-bolt"></i>
+              <strong>مشهد عمّان:</strong><br>
+              مطار يفتح أبوابه على قصة طال انتظارها؛
+              حقيبتان، قلبان، وتاريخ مكتوب في التذكرة:
+              <strong>١١/١٢/٢٠٢٥</strong>.
+            </p>
+            <p>
+              من لحظة اللقاء في عمّان، تبدأ مرحلة جديدة:
+              لا فرق توقيت، ولا فرق دول، بل فرق تفاصيل صغيرة في بيت واحد في زارلاند،
+              يصنعانها معاً يوماً بعد يوم.
+            </p>
+
+            <div class="dua-box">
+              <strong>دعاؤنا للعروسين:</strong><br>
+              اللهم اجعل سفرهما هذا سفراً مباركاً، واحفظهما من كل سوء،
+              واجعل لقائهما بداية حياة ملؤها الطاعة والسكينة،
+              وارزقهما من الخير فوق ما يأملان.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-images text-info"></i>
+        معرض الصور – لقطات من الحكاية
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+      <p class="section-tagline" data-aos="fade-up">
+        يمكن هنا وضع صور من عقد الزواج في سوريا، وصور من عمّان، وصور من زارلاند، أو أي لحظات تحبّون أن تبقوا قريبة من القلب.
+      </p>
+
+      <div class="row g-3 g-md-4 gallery-grid">
+        <!-- Image 1: Marriage Contract Syria -->
+        <div class="col-6 col-md-4" data-aos="zoom-in">
+          <div class="gallery-card gallery-item" data-img="images/marriage-contract-syria.png" data-caption="Marriage Contract – Syria – February 2025">
+            <img src="images/marriage-contract-syria.png" alt="عقد الزواج في سوريا" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">عقد الزواج – سوريا</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 2: Embassy Papers -->
+        <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="50">
+          <div class="gallery-card gallery-item" data-img="images/embassy-papers.png" data-caption="Embassy Papers – Amman">
+            <img src="images/embassy-papers.png" alt="أوراق السفارة" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">أوراق السفارة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 3: Amman -->
+        <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="gallery-card gallery-item" data-img="images/amman.png" data-caption="Amman – First Meeting 11 Dec 2025">
+            <img src="images/amman.png" alt="اللقاء في عمّان" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">اللقاء في عمّان</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 4: Flight -->
+        <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="gallery-card gallery-item" data-img="images/flight.png" data-caption="Flight – From Amman to Germany">
+            <img src="images/flight.png" alt="الطائرة إلى ألمانيا" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">رحلة الطائرة</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 5: Saarland -->
+        <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="gallery-card gallery-item" data-img="images/saarland.png" data-caption="Saarland – New Home">
+            <img src="images/saarland.png" alt="زارلاند" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">زارلاند – البيت الجديد</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 6: Qutaiba & Noor -->
+        <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="250">
+          <div class="gallery-card gallery-item" data-img="images/qutaiba-noor.png" data-caption="Qutaiba & Noor – From First Message to One Home">
+            <img src="images/qutaiba-noor.png" alt="قتيبة و نور" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">قتيبة & نور</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gifts Section -->
+  <section id="gifts">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">
+        <i class="fa-solid fa-gift text-warning"></i>
+        التهاني و الهدايا
+      </h2>
+      <div class="divider-line" data-aos="fade-up"></div>
+      <p class="section-tagline" data-aos="fade-up">
+        وجودكم ودعاؤكم هو أعظم هدية. ومن أحب أن يشارك قتيبة و نور بداية حياتهما
+        بهدية رمزية، فلهما الشكر والدعاء من القلب.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="paypal-card" data-aos="zoom-in">
+            <div class="paypal-badge">
+              <i class="fa-brands fa-paypal"></i>
+              هدية أونلاين – من قلبكم إلى بداية بيتهم في زارلاند
+            </div>
+            <h5 class="mb-2">
+              إرسال هدية عبر PayPal
+            </h5>
+            <p class="mb-3">
+              يمكنكم دعم بداية حياة قتيبة و نور الزوجية بهدية رمزية عبر رابط PayPal الآمن التالي،
+              مع خالص الشكر والمحبة لكل من يشاركهما هذه اللحظات:
+            </p>
+            <a
+              href="https://paypal.me/EngAlkurdi?country.x=DE&locale.x=de_DE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button class="btn-paypal">
+                <i class="fa-brands fa-paypal"></i>
+                إرسال هدية عبر PayPal
+              </button>
+            </a>
+            <p class="mt-3 mb-0 paypal-note">
+              <i class="fa-solid fa-shield-heart"></i>
+              الرابط مباشر إلى حساب المهندس قتيبة الكردي على PayPal.
+              شكراً لكل قلب يشاركهما بداية هذا المشوار.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="wish-card" data-aos="fade-left">
+                <p>
+                  <i class="fa-solid fa-envelope-open-heart"></i>
+                  <strong>عبارات جاهزة للتهنئة:</strong>
+                </p>
+                <ul class="mb-0 wishes-list">
+                  <li>ألف مبارك زواجكما، جعل الله أيامكما كلها سعادة وهناء، وكتب لكما حياة مليئة بالرضا والسكينة.</li>
+                  <li>نبارك للمهندس قتيبة الكردي و نور السعيد زواجهما، ونسأل الله أن يجمع بينكما على المودة والرحمة.</li>
+                  <li>كثير من التعب، كثير من الحب، كثير من الانتظار… واليوم كثير من الفرح. زواج مبارك بإذن الله.</li>
+                  <li>بارك الله لكما وبارك عليكما وجمع بينكما في خير، وجعل غربتكما في ألمانيا باب رزق وسعادة واطمئنان.</li>
+                  <li>من أول رسالة إلى بيت واحد في زارلاند؛ جعل الله هذا البيت عامراً بالطاعة والسكينة والضحكات.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="wish-card" data-aos="fade-left" data-aos-delay="150">
+                <p>
+                  <i class="fa-solid fa-quote-right"></i>
+                  <strong>إهداء خاص:</strong><br>
+                  “إلى قتيبة و نور… اللذين أثبتا أن المسافة مهما طالت،
+                  فإن الدعاء والصبر قادران أن يحوّلا أول رسالة
+                  إلى حياة كاملة تحت سقف واحد.”
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span>♥</span>
+      بكل الفرح نحتفل بقصة حب وزواج
+      <strong>المهندس قتيبة الكردي</strong> و <strong>نور السعيد</strong>
+      – عقد الزواج في سوريا فبراير ٢٠٢٥، واللقاء في عمّان ١١ ديسمبر ٢٠٢٥، وبداية البيت في زارلاند
+      <span>♥</span>
+    </div>
+  </footer>
+
+  <!-- Image Lightbox Modal -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content lightbox-modal">
+        <div class="modal-body p-0">
+          <button type="button" class="btn-close btn-close-white lightbox-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <img id="lightbox-img" src="" alt="صورة" class="w-100">
+          <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back To Top Button -->
+  <button id="back-to-top" class="back-to-top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="main.js"></script>
+</body>
+</html>
