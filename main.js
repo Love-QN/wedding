@@ -1,18 +1,15 @@
-// Run everything only after the whole page (HTML + CSS + images + libs) is loaded
+// main.js
+
 window.addEventListener("load", () => {
-  // 1) AOS scroll animations (safe)
+  
   try {
-    if (window.AOS && typeof AOS.init === "function") {
-      AOS.init({
-        duration: 800,
-        once: true,
-      });
+    if (!document.getElementById("intro-overlay") && window.AOS && typeof AOS.init === "function") {
+        AOS.init({ duration: 800, once: true });
     }
   } catch (e) {
     console.error("AOS init error:", e);
   }
 
-  // 2) Tilt effect on cards
   try {
     if (window.VanillaTilt) {
       VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
@@ -26,7 +23,6 @@ window.addEventListener("load", () => {
     console.error("VanillaTilt error:", e);
   }
 
-  // 3) Intro overlay + hero animations (GSAP)
   try {
     const introOverlay = document.getElementById("intro-overlay");
     const enterBtn = document.getElementById("enter-btn");
@@ -41,18 +37,32 @@ window.addEventListener("load", () => {
     const hideIntro = () => {
       if (!introOverlay) {
         runHeroAnimation();
+        if (window.AOS && typeof AOS.init === "function") {
+          AOS.init({ duration: 800, once: true });
+        }
         return;
       }
+      
       if (window.gsap) {
         gsap.to("#intro-overlay", {
           opacity: 0,
           duration: 0.8,
           onComplete: () => {
             introOverlay.style.display = "none";
+            
+            if (window.AOS && typeof AOS.init === "function") {
+              setTimeout(() => {
+                AOS.init({ duration: 800, once: true });
+                AOS.refresh();
+              }, 300); 
+            }
           },
         });
       } else {
         introOverlay.style.display = "none";
+        if (window.AOS && typeof AOS.init === "function") {
+          AOS.init({ duration: 800, once: true });
+        }
       }
       runHeroAnimation();
     };
@@ -63,17 +73,14 @@ window.addEventListener("load", () => {
       gsap.from(".intro-subtitle", { y: 20, opacity: 0, duration: 0.8, delay: 0.5 });
       gsap.from(".intro-btn", { scale: 0.9, opacity: 0, duration: 0.8, delay: 0.7 });
 
-      // Hide intro when clicking the button
       enterBtn.addEventListener("click", hideIntro);
     } else {
-      // If intro missing, just animate hero
       runHeroAnimation();
     }
   } catch (e) {
     console.error("Intro / GSAP error:", e);
   }
 
-  // 4) Typed.js animated line
   try {
     const typedTarget = document.getElementById("typed-text");
     if (typedTarget && window.Typed) {
@@ -95,7 +102,6 @@ window.addEventListener("load", () => {
     console.error("Typed.js error:", e);
   }
 
-  // 5) Countdown to 11 December 2025
   try {
     const meetingDate = new Date("2025-12-11T00:00:00").getTime();
 
@@ -135,7 +141,6 @@ window.addEventListener("load", () => {
     console.error("Countdown error:", e);
   }
 
-  // 6) tsParticles background
   try {
     if (window.tsParticles) {
       tsParticles.load("tsparticles", {
@@ -185,13 +190,12 @@ window.addEventListener("load", () => {
           }
         },
         detectRetina: true
-      });
+    });
     }
   } catch (e) {
     console.error("tsParticles error:", e);
   }
 
-  // 7) Theme toggle (light / dark)
   try {
     const themeToggle = document.getElementById("theme-toggle");
     if (themeToggle) {
@@ -212,7 +216,6 @@ window.addEventListener("load", () => {
     console.error("Theme toggle error:", e);
   }
 
-  // 8) Music play / pause
   try {
     const musicToggle = document.getElementById("music-toggle");
     const musicPlayer = document.getElementById("music-player");
@@ -236,7 +239,6 @@ window.addEventListener("load", () => {
     console.error("Music toggle error:", e);
   }
 
-  // 9) Image gallery lightbox (Bootstrap modal)
   try {
     const galleryItems = document.querySelectorAll(".gallery-item");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -267,7 +269,6 @@ window.addEventListener("load", () => {
     console.error("Gallery / lightbox error:", e);
   }
 
-  // 10) Back to top button
   try {
     const backToTopBtn = document.getElementById("back-to-top");
 
