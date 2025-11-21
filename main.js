@@ -1,4 +1,5 @@
 // main.js
+
 document.addEventListener("DOMContentLoaded", () => {
   
   if (window.VanillaTilt) {
@@ -26,13 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
         onComplete: () => {
           introOverlay.style.display = "none";
           
-          // تفعيل AOS بعد اختفاء الـ overlay لضمان القياس الصحيح للعناصر
           if (window.AOS && typeof AOS.init === "function") {
             AOS.init({
               duration: 800,
               once: true,
             });
-            AOS.refresh(); 
+            
+            setTimeout(() => {
+                AOS.refresh();
+            }, 50); 
           }
         },
       });
@@ -48,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".hero-names", { y: 30, opacity: 0, duration: 1, delay: 0.5 });
     gsap.from(".hero-subtitle", { y: 20, opacity: 0, duration: 1, delay: 0.7 });
 
-    // تفعيل AOS مباشرة إذا لم يكن هناك شاشة مقدمة
     if (window.AOS && typeof AOS.init === "function") {
         AOS.init({ duration: 800, once: true });
     }
