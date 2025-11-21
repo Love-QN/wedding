@@ -1,13 +1,6 @@
-// Safe AOS initialization
-if (window.AOS && typeof AOS.init === "function") {
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
-}
-
-// Tilt effect for cards
+// main.js
 document.addEventListener("DOMContentLoaded", () => {
+  
   if (window.VanillaTilt) {
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
       max: 12,
@@ -17,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cinematic intro and hero animations
   const introOverlay = document.getElementById("intro-overlay");
   const enterBtn = document.getElementById("enter-btn");
 
@@ -33,6 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.8,
         onComplete: () => {
           introOverlay.style.display = "none";
+          
+          // تفعيل AOS بعد اختفاء الـ overlay لضمان القياس الصحيح للعناصر
+          if (window.AOS && typeof AOS.init === "function") {
+            AOS.init({
+              duration: 800,
+              once: true,
+            });
+            AOS.refresh(); 
+          }
         },
       });
 
@@ -46,9 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".hero-title", { y: 40, opacity: 0, duration: 1, delay: 0.3 });
     gsap.from(".hero-names", { y: 30, opacity: 0, duration: 1, delay: 0.5 });
     gsap.from(".hero-subtitle", { y: 20, opacity: 0, duration: 1, delay: 0.7 });
+
+    // تفعيل AOS مباشرة إذا لم يكن هناك شاشة مقدمة
+    if (window.AOS && typeof AOS.init === "function") {
+        AOS.init({ duration: 800, once: true });
+    }
   }
 
-  // Typed.js animated line in hero
   if (document.getElementById("typed-text") && window.Typed) {
     new Typed("#typed-text", {
       strings: [
@@ -65,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Countdown to 11 December 2025
   const meetingDate = new Date("2025-12-11T00:00:00").getTime();
 
   function updateCountdown() {
@@ -101,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // tsParticles background
   if (window.tsParticles) {
     tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
@@ -153,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Theme toggle (light / dark)
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -169,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Music play / pause
   const musicToggle = document.getElementById("music-toggle");
   const musicPlayer = document.getElementById("music-player");
   if (musicToggle && musicPlayer) {
@@ -187,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Gallery lightbox
   const galleryItems = document.querySelectorAll(".gallery-item");
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
@@ -207,7 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Back to top button
   const backToTopBtn = document.getElementById("back-to-top");
   if (backToTopBtn) {
     window.addEventListener("scroll", () => {
